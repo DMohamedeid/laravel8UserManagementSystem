@@ -1,0 +1,17 @@
+we are going to use laravel fortify
+
+--> composer require laravel/fortify
+
+and then we need to publish it
+
+--> php artisan vendor:publish --provider="laravel\\Fortify\\FortifyServiceProvider"
+
+after that we migrate to database
+
+after that we need to install bootstrap
+
+-->npm i bootstrap@ popper.js sass sass-loader --save-dev
+
+after the import of bootstrap we run
+
+--> npm run dev
