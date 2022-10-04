@@ -15,3 +15,7 @@ after that we need to install bootstrap
 after the import of bootstrap we run
 
 --> npm run dev
+
+to make any changes in bootstrap or css run
+
+--> npm run watch
