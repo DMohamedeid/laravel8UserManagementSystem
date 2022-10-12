@@ -43,6 +43,19 @@ to see the routs in laravel system
 
 --> php artisan route:list
 
+------------------------------------------------------------------------------------------------------------------------
+
+design our database with roles
+
+--> php artisan make:model {name of the model} -a
+
+--> php artisan make:migration create_role_user_table
+
+after creating the tables and the foreign we go to models and create the relationships
+
+
+
+
 
 
 
