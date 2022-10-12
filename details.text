@@ -4,7 +4,10 @@ we are going to use laravel fortify
 
 and then we need to publish it
 
---> php artisan vendor:publish --provider="laravel\\Fortify\\FortifyServiceProvider"
+--> php artisan vendor:publish
+
+then we choose the index of
+--> laravel\\Fortify\\FortifyServiceProvider
 
 after that we migrate to database
 
@@ -19,3 +22,27 @@ after the import of bootstrap we run
 to make any changes in bootstrap or css run
 
 --> npm run watch
+
+------------------------------------------------------------------------------------------------------------------------
+
+using laravel fortify to make user register and login
+
+first we need to register fortifyService provider in config app.php in provider
+
+--> App\Providers\FortifyServiceProvider::class,
+
+the second thing we need to let laravel know where the login and register views will be
+
+in app/provider/FortifyServiceProvider
+
+after we crete the register blade and login blade the redirect is to home
+
+to change the the home redirect from the providers/RouteServiceProvider
+
+to see the routs in laravel system
+
+--> php artisan route:list
+
+
+
+
