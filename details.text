@@ -53,6 +53,18 @@ design our database with roles
 
 after creating the tables and the foreign we go to models and create the relationships
 
+------------------------------------------------------------------------------------------------------------------------
+Seeding our Roles in the seeder
+
+to make user seeder
+
+--> php artisan make:seeder UserSeeder
+
+to make the RoleUserSeeder after that
+
+--> php artisan make:seeder RoleUserSeeder
+
+to see what we made in the data base using terminal
 
 
 
