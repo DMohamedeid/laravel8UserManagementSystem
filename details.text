@@ -64,7 +64,9 @@ to make the RoleUserSeeder after that
 
 --> php artisan make:seeder RoleUserSeeder
 
-to see what we made in the data base using terminal
+to make resource controller with another directory
+
+--> php artisan make:controller Admin\\UserController -r
 
 
 
