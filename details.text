@@ -78,4 +78,17 @@ User::factory()->count(50)->crete()
 
 in the pagination we let laravel use bootstrap in appServiceProvider
 
+------------------------------------------------------------------------------------------------------------------------
+the different between sync and attach
+ (sync)-> is to set array of variables to the object
+ (attach)-> is to set one variable to the object
+
+ for creating new user we need to mutate the password before storing it into data base
+
+ for doing this in User Model we do
+ {
+    The name must start with set.
+    set should be followed by the attribute name in the Pascal case. For example, to mutate the full_name attribute, use FullName.
+    Finally, the name should end with Attribute.
+}
 

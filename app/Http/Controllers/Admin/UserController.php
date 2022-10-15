@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -28,7 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return 'hi from create';
+        $roles = Role::all();
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -39,7 +41,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->except(['_token' , 'roles']));
+
+        $user->roles()->sync($request->roles);
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -61,8 +67,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return 'hi from edit';
-
+        $roles = Role::all();
+        $user = User::find($id);
+        return view('admin.users.edit', compact('roles' , 'user'));
     }
 
     /**
@@ -74,7 +81,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->update($request->all());
+        $user->roles()->sync($request->roles);
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -85,6 +97,8 @@ class UserController extends Controller
      */
     public function destroy( $id)
     {
-        return 'Hello from Destroy';
+        User::destroy($id);
+
+        return redirect(route('admin.users.index'));
     }
 }
