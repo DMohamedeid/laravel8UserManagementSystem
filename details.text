@@ -68,8 +68,14 @@ to make resource controller with another directory
 
 --> php artisan make:controller Admin\\UserController -r
 
+------------------------------------------------------------------------------------------------------------------------
 
+if u want to seed more data using tinker
 
+--> php artisan tinker
 
+User::factory()->count(50)->crete()
+
+in the pagination we let laravel use bootstrap in appServiceProvider
 
 
