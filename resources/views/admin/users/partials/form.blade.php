@@ -19,7 +19,7 @@
 @isset($create)
 <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="text" class="form-control @error('password') is-invalid @enderror " name="password" id="password" value="{{old('password')}} @isset($user) {{$user->password}} @endisset" >
+    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="{{old('password')}} @isset($user) {{$user->password}} @endisset" >
     @error('password')
         <span class="invalid-feedback" role="alert">
             {{$message}}
@@ -27,6 +27,7 @@
     @enderror
 </div>
 @endisset
+
 <div class="mb-3">
     @foreach($roles as $role)
         <div class="form-check">

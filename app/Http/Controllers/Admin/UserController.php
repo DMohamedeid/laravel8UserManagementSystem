@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Mockery\Generator\Method;
 
 class UserController extends Controller
 {
@@ -39,13 +38,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $user = User::create($request->except(['_token' , 'roles']));
+        $validateData = $request->validated();
+
+        $user = User::create($validateData);
 
         $user->roles()->sync($request->roles);
 
-        return redirect(route('admin.users.index'));
+        return redirect(route('admin.users.index'))->with('success' , 'You have Created the user Successfully');
     }
 
     /**
@@ -79,12 +80,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
+        $validateData = $request->validated();
+
         $user = User::findOrFail($id);
 
-        $user->update($request->all());
+        $user->update($validateData);
+
         $user->roles()->sync($request->roles);
+
+        $request->session()->flash('success' , 'You Have Updated the user Successfully');
 
         return redirect(route('admin.users.index'));
     }
@@ -99,6 +105,6 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return redirect(route('admin.users.index'));
+        return redirect(route('admin.users.index'))->with('success' , 'You have deleted the user');
     }
 }

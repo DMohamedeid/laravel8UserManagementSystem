@@ -92,3 +92,6 @@ the different between sync and attach
     Finally, the name should end with Attribute.
 }
 
+to make the request validation
+
+--> php artisan make:request UserRequest
