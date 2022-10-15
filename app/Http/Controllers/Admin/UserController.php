@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Mockery\Generator\Method;
 
 class UserController extends Controller
 {
@@ -14,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        dd('hello form index UserController');
+        $users = User::all();
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -24,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return 'hi from create';
     }
 
     /**
@@ -57,7 +61,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'hi from edit';
+
     }
 
     /**
@@ -78,8 +83,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        return 'Hello from Destroy';
     }
 }
