@@ -24,21 +24,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @can('logged-in')
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.users.index')}}">Users</a>
                     </li>
+                    @endcan
                 </ul>
                 <div class="d-flex">
                     @if (Route::has('login'))
                         <div >
                             @auth
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/home') }}" >Home</a>
-                                    </li>
+{{--                                    <li class="nav-item">--}}
+{{--                                        <a class="nav-link" href="{{ url('/home') }}" >Home</a>--}}
+{{--                                    </li>--}}
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                         <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none">
