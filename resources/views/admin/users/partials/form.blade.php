@@ -19,11 +19,20 @@
 @isset($create)
 <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="{{old('password')}} @isset($user) {{$user->password}} @endisset" >
+    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="{{old('password')}}@isset($user){{$user->password}} @endisset" >
     @error('password')
         <span class="invalid-feedback" role="alert">
             {{$message}}
         </span>
+    @enderror
+</div>
+<div class="mb-3">
+    <label for="password_confirmation" class="form-label">Password Confirmation</label>
+    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror " name="password_confirmation" id="password_confirmation" value="{{old('password_confirmation')}}">
+    @error('password_confirmation')
+    <span class="invalid-feedback" role="alert">
+                {{$message}}
+            </span>
     @enderror
 </div>
 @endisset

@@ -34,10 +34,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = Hash::make($password);
-    }
+//    public function setPasswordAttribute($password)
+//    {
+//        $this->attributes['password'] = Hash::make($password);
+//    }
 
     /**
      * The attributes that should be cast.
