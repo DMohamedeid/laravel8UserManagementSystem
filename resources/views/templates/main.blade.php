@@ -25,12 +25,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @can('logged-in')
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.users.index')}}">Users</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                        </li>
+                        @can('is-admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.users.index')}}">Users</a>
+                            </li>
+                        @endcan
                     @endcan
                 </ul>
                 <div class="d-flex">

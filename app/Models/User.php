@@ -48,6 +48,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    /**
+     * @param string $user
+     * @return bool
+     */
+
+    public function hasAnyRole(string $user)
+    {
+        return null !== $this->roles()->where('name', $user)->first();
+    }
+
+    /**
+     * @param array $user
+     * @return bool
+     */
+
+    public function hasAnyRoles(array $user)
+    {
+        return null !== $this->roles()->whereIn('name', $user)->first();
+    }
+
     public function roles(){
         return $this->belongsToMany(Role::class);
     }

@@ -95,3 +95,18 @@ the different between sync and attach
 to make the request validation
 
 --> php artisan make:request UserRequest
+
+------------------------------------------------------------------------------------------------------------------------
+for checking the roles of the user we create two functions in the user model and the we call it in the
+
+Auth service Provider
+
+to make the middle ware
+
+--> php artisan make:middleware AccessUser
+
+to apply the middleware to route
+we go to kernel.php in app/http  then we put
+
+-->
+
